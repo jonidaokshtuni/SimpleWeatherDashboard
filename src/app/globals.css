@@ -1,33 +1,131 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(135deg, #eceff1 0%, #b0bec5 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: #333;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+h1 {
+  margin: 20px 0;
+  font-size: 2.5em;
+  color: #37474f;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.dashboard {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.widget {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.widget:hover {
+  transform: scale(1.05);
+}
+
+.widget {
+  h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+    display: flex;
+
+    .wind {
+      color: #007bff;
+    }
+
+    .temperature {
+      color: #ff6347;
+    }
+
+    .humidity {
+      color: #4caf50;
+    }
+
+    .pressure {
+      color: #9575cd;
+    }
   }
+}
+
+.widget {
+  p {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #9697a0;
+    &.speed {
+      display: flex;
+    }
+    &.humidityvalue {
+      display: flex;
+    }
+  }
+}
+
+.widget button {
+  margin-top: 10px;
+  border: none;
+  background-color: transparent;
+  color: gray;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  float: right;
+}
+
+.widget button:hover {
+  color: #0056b3;
+}
+
+
+.select-wrapper {
+  display: block;
+  margin: 0 auto 60px;
+  width: 500px;
+}
+
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #333;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-select:hover {
+  border-color: #007bff;
+}
+
+.custom-select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+select:hover {
+  border-color: #007bff;
 }
